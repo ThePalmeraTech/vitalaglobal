@@ -1,0 +1,47 @@
+.my_profile_title {
+  position: fixed;
+  top: 25px;
+  z-index: 2000;
+  left: 6em;
+}
+
+
+.profile-container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.profile-title {
+  margin-bottom: 130px;
+}
+
+.profile-card {
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 16vh;
+}
+
+.profile-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.profile-list li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-list li:last-child {
+  border-bottom: none;
+}
+
+.profile-list strong {
+  font-weight: bold;
+  color: #333;
+}

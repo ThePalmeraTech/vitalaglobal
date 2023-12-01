@@ -1,0 +1,21 @@
+.new-profile-container {
+  background-color: #ffd26d; /* The desired background color */
+}
+.new-profile-img {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  width: 41%;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  position: fixed;
+}
+
+
+.new_profile_title {
+  position: fixed;
+  top: -20px;
+  z-index: 2000;
+  left: 6em;
+}
