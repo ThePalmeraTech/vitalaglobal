@@ -148,3 +148,9 @@ nav {
     display: flex;
   }
 }
+/* Additional media query for mobile screens */
+@media (max-width: 768px) { /* Adjust the max-width as per your breakpoint for mobile devices */
+  .hide-nav {
+    display: none;
+  }
+}

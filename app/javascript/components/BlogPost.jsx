@@ -24,7 +24,7 @@ const BlogPost = () => {
   return (
     <div className='container mt-5 pt-4'>
       <h1 className='mt-5'>{post.title}</h1>
-      <img className='mt-3' src={post.featured_image_url} alt={post.title} />
+      <img className='mt-3 img-fluid' src={post.featured_image_url} alt={post.title} />
       <p className='mt-3'>{post.content}</p>
       {/* Add any other post details you want to display */}
     </div>
