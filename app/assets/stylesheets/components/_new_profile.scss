@@ -15,7 +15,83 @@
 
 .new_profile_title {
   position: fixed;
-  top: -20px;
+  top: -45px;
   z-index: 2000;
-  left: 6em;
+  left: 5em;
+}
+
+.profile-form {
+  margin-top: 11rem;
+}
+
+@media screen and (max-width: 576px) {
+
+  .new_profile_title {
+    top: -30px;
+    left: 3.8em;
+    font-size: 24px;
+  }
+
+  .new-profile-img {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    right: -10rem;
+    z-index: -1;
+    position: fixed;
+  }
+  .profile-form {
+    margin-top: 6.1rem;
+}
+
+}
+
+
+@media screen and (min-width: 1600px) {
+  .new_profile_title {
+    position: fixed;
+    top: -45px;
+    z-index: 2000;
+    left:6em;
+  }
+  .profile-form {
+    margin-top: 11rem;
+  }
+
+  .new-profile-img {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    width: 41%;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    position: fixed;
+  }
+}
+
+
+@media screen and (min-width: 1920px) {
+  .new_profile_title {
+    position: fixed;
+    top: -45px;
+    z-index: 2000;
+    left: 10em;
+  }
+  .profile-form {
+    margin-top: 16rem;
+  }
+
+  .new-profile-img {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    width: 41%;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    position: fixed;
+  }
 }

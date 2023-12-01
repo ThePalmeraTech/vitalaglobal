@@ -43,7 +43,7 @@ names.each_with_index do |name, i|
   )
 end
 
-70.times do
+25.times do
   BlogPost.create(
     title: "Sample Title #{rand(1000)}", # Random title
     content: "Sample content #{rand(1000)}", # Random content

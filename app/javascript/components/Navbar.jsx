@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const location = useLocation();
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
-  // Check if the current location is the root
+  const location = useLocation();
   const isRoot = location.pathname === '/';
 
   return (
-    <nav className={`fixed-top bg_primary-color mb-5 p-3 ${isRoot ? 'hide-nav' : ''}`}>
+    <nav className={`navbar navbar-expand-lg fixed-top bg_primary-color mb-5 p-1 ${isRoot ? 'hide-nav' : ''}`}>
       <div className='container'>
-        <div className='d-flex flex-direction-column'>
-        <a href='/'>
+        <a href='/' className="navbar-brand">
           <img
             src="https://static.wixstatic.com/media/1fd4c8_149d95bff30f485d86ac5d672efbd738~mv2.png/v1/fill/w_58,h_58,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Aya%20Home%20Icon.png"
             alt="Your Alt Text"
@@ -20,12 +21,23 @@ const Navbar = () => {
           />
         </a>
 
-        <div className='d-flex flex-direction-row'>
-            <a href='#'>News</a>
-            <a href='#'>My Profile</a>
-        </div>
-        </div>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
+        <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarNav">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <Link to="/blog-posts" className="nav-link m-3">Blog</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/profiles" className="nav-link m-3">Profiles</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="profiles/7" className="nav-link m-3">My Profile</Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

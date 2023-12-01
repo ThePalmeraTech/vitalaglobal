@@ -1,8 +1,5 @@
 .my_profile_title {
-  position: fixed;
-  top: 25px;
-  z-index: 2000;
-  left: 6em;
+
 }
 
 
@@ -21,7 +18,7 @@
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 16vh;
+  margin-top: 9vh;
 }
 
 .profile-list {
@@ -44,4 +41,25 @@
 .profile-list strong {
   font-weight: bold;
   color: #333;
+}
+
+@media screen and (min-width: 1400px) {
+  .my_profile_title {
+
+  }
+
+}
+
+@media screen and (min-width: 1600px) {
+  .my_profile_title {
+
+  }
+
+}
+
+@media screen and (min-width: 1920px) {
+  .my_profile_title {
+
+  }
+
 }

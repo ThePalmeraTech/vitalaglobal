@@ -50,8 +50,9 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <h1 className="my_profile_title">Hi, {profile.name}</h1>
+
       <div className="profile-card mb-5">
+      <h1 className="my_profile_title">Hi, {profile.name}</h1>
         <h4>Your Personal Health Information:</h4>
         {renderProfileData()}
       </div>

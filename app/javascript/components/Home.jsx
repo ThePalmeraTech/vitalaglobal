@@ -14,7 +14,7 @@ export default () => (
           Your Trusted Companion for Wellness and Knowledge
           </p>
           <hr className="my-4" />
-          <Link to="/profiles/new" className="btn custom-button m-1">Start Profile</Link>
+          <Link to="/profiles/new" className="btn custom-button m-1">Add Health Profile</Link>
 
           <Link to="blog-posts" className="btn custom-button m-1">View Blog Posts</Link>
 
