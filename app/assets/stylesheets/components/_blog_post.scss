@@ -1,0 +1,31 @@
+.nav-link {
+  color: #1a535c; /* Default link color */
+  margin: 0 1rem; /* Margin to give space around the links */
+  text-decoration: none; /* No underline */
+  transition: color 0.3s ease; /* Transition effect for color change */
+  font-weight: bold;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: #000; /* Color when hovered or focused */
+  text-decoration: none; /* No underline */
+}
+
+/* You can add other effects like underline on hover */
+.nav-link:hover::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #ffd26d;
+  transition: width 0.3s;
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #ffd26d;
+  transition: width 0.3s;
+}

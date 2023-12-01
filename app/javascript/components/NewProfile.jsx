@@ -38,6 +38,8 @@ const NewProfile = () => {
     };
   }, []);
 
+
+// Countries for the location field
   const countryOptions = [
     { value: 'canada', label: 'Canada' },
     { value: 'usa', label: 'United States' },
@@ -49,14 +51,34 @@ const NewProfile = () => {
 
   const validateFields = () => {
     let newErrors = {};
-    // Check if each required field is empty and add an error message if it is
-    if (!profile.name) newErrors.name = 'Name is required';
-    if (!profile.age) newErrors.age = 'Age is required';
-    if (!profile.gender) newErrors.gender = 'Gender is required';
-    if (!profile.location) newErrors.location = 'Location is required';
+
+    // Validate the 'name' field to ensure it has at least two words
+    const nameWords = profile.name.trim().split(/\s+/);
+    if (!profile.name) {
+      newErrors.name = 'Name is required';
+    } else if (nameWords.length < 2) {
+      newErrors.name = 'Please enter both first and last name';
+    }
+
+    // Validate the 'age' field to ensure it is between 15 and 120
+    if (!profile.age) {
+      newErrors.age = 'Age is required';
+    } else if (profile.age < 15 || profile.age > 120) {
+      newErrors.age = 'Age must be between 15 and 120';
+    }
+
+    // Validate the 'Gender' field
+    if (!profile.gender) {
+      newErrors.gender = 'Gender is required';
+    }
+
+     // Validate the 'Location' field to ensure it is between 15 and 120
+     if (!profile.location) {
+      newErrors.location = 'Location is required';
+    }
+
 
     setErrors(newErrors);
-    // Return true if there are no errors
     return Object.keys(newErrors).length === 0;
   };
 
@@ -69,6 +91,12 @@ const NewProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate fields before submitting
+    if (!validateFields()) {
+      console.error('Validation failed', errors);
+      return;
+    }
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     fetch('/api/v1/profiles', {
       method: 'POST',
@@ -109,7 +137,6 @@ const handleBackToStep1 = () => {
 };
 
 
-
 // Render the progress bar
 const renderProgressBar = () => (
   <div className="progress">
@@ -128,14 +155,14 @@ const renderStep1 = () => (
         {/* Name */}
         <div className="col-md-5 mb-3"> {/* First column */}
           <label htmlFor="name" className="form-label">Name</label>
-          <input type="text" className="form-control" id="name" name="name" placeholder='Full Name' value={profile.name} onChange={handleChange} required />
+          <input type="text" className="form-control" id="name" name="name" placeholder='Full Name' value={profile.name} onChange={handleChange} />
           {errors.name && <div className="text-danger">{errors.name}</div>}
         </div>
 
         {/* Age */}
         <div className="col-md-5 mb-3"> {/* Second column */}
           <label htmlFor="age" className="form-label">Age</label>
-          <input type="number" className="form-control" id="age" name="age" placeholder='Age' value={profile.age} onChange={handleChange} required />
+          <input type="number" className="form-control" id="age" name="age" placeholder='Age' value={profile.age} onChange={handleChange} />
           {errors.age && <div className="text-danger">{errors.age}</div>}
         </div>
       </div>
@@ -170,7 +197,7 @@ const renderStep1 = () => (
       </div>
 
       {/* Contact Information */}
-      <div className="mb-3 col-5 p-1">
+      <div className="mb-3 col-lg-5 col-xs-12 p-1">
         <label htmlFor="contact_information" className="form-label">Contact Information</label>
         <input type="text" className="form-control" id="contact_information" name="contact_information" placeholder='Introduce a phone number or email address' value={profile.contact_information} onChange={handleChange} />
       </div>
@@ -190,7 +217,9 @@ const renderStep1 = () => (
         </div>
       </div>
 
-      <button type="button" className="btn btn-primary" onClick={handleNextStep}>Next</button>
+      <div className='d-grid gap-2'>
+        <button type="button" className="btn btn-primary btn-block " onClick={handleNextStep}>Next</button>
+      </div>
     </form>
   </div>
 );
@@ -288,8 +317,20 @@ const renderStep1 = () => (
           <label className="form-check-label" htmlFor="terms_acceptance">Terms Acceptance</label>
         </div>
 
-      <button type="button" className="btn custom-button me-2" onClick={handleBackToStep1}>Back</button>
-      <button type="submit" className="btn custom-button">Submit</button>
+        {/* For Mobile */}
+        <div class="d-block d-md-none btn-mobile d-flex flex-direction-row d-grid gap-2 mb-5">
+          <button type="button" class="btn btn-primary btn-block me-2 w-100" onClick={handleBackToStep1}>Back</button>
+          <button type="submit" class="btn btn-primary btn-block w-100">Submit</button>
+        </div>
+
+         {/* For Desktop */}
+        <div class="d-none d-md-block btn-desktop w-100 ">
+          <button type="button" class="btn btn-primary me-2" onClick={handleBackToStep1}>Back</button>
+          <br />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+
       </form>
 
     </div>
@@ -297,14 +338,16 @@ const renderStep1 = () => (
   );
 
   return (
-    <div className="container mt-5 pt-5">
+    <div className="container profile-form">
       <h1 className="mb-4 mt-5 new_profile_title">Create a New Profile {renderProgressBar()} {/* Add the progress bar */}</h1>
+      {step === 1 && (
       <img
         src="https://static.wixstatic.com/media/1fd4c8_4d7becce92c94088af15e9bb21a05119~mv2.png"
         alt="Descriptive Text Here"
         className='new-profile-img'
         style={{ maxWidth: '100%', height: 'auto' }}
       />
+    )}
 
 
       {step === 1 ? renderStep1() : renderStep2()}

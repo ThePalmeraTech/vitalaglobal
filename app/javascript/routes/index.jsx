@@ -5,7 +5,8 @@ import Home from "../components/Home";
 import Profiles from "../components/Profiles";
 import Profile from "../components/Profile";
 import NewProfile from "../components/NewProfile";
-import BlogPosts from "../components/BlogPost";
+import BlogPosts from "../components/BlogPosts";
+import BlogPost from "../components/BlogPost";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
           <Route path="profiles/:id" element={<Profile />} />
           <Route path="profiles/new" element={<NewProfile />} />
           <Route path="blog-posts" element={<BlogPosts />} />
+          <Route path="blog-posts/:id" element={<BlogPost />} />
         </Route>
       </Routes>
     </Router>
