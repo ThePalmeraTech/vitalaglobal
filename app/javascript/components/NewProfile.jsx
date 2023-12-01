@@ -217,7 +217,7 @@ const renderStep1 = () => (
         </div>
       </div>
 
-      <div className='d-grid gap-2'>
+      <div className='d-grid gap-2 col-md-5 col-xs-12'>
         <button type="button" className="btn btn-primary btn-block " onClick={handleNextStep}>Next</button>
       </div>
     </form>
@@ -324,10 +324,10 @@ const renderStep1 = () => (
         </div>
 
          {/* For Desktop */}
-        <div class="d-none d-md-block btn-desktop w-100 ">
+        <div class="d-none d-md-block btn-desktop mb-5">
           <button type="button" class="btn btn-primary me-2" onClick={handleBackToStep1}>Back</button>
-          <br />
-          <button type="submit" class="btn btn-primary">Submit</button>
+
+          <button type="submit" class="btn btn-primary w-50">Submit</button>
         </div>
 
 
