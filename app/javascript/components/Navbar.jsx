@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar navbar-expand-lg fixed-top bg_primary-color mb-5 p-1 ${isRoot ? 'hide-nav' : ''}`}>
       <div className='container d-flex justify-content-between'>
-        <a href='/' className="navbar-brand w-100">
+        <a href='/' className="navbar-brand w-50">
           <img
             src="https://static.wixstatic.com/media/1fd4c8_149d95bff30f485d86ac5d672efbd738~mv2.png/v1/fill/w_58,h_58,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Aya%20Home%20Icon.png"
             alt="Your Alt Text"
